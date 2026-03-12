@@ -1,6 +1,6 @@
-#detection name: behavior based wscript powershell execution
+# Detection name: behavior based wscript powershell execution
 
-##description: detects wscript powershell execution
+## Description: detects wscript powershell execution
 
 **techinque:** T1059.005, T1059.001
 

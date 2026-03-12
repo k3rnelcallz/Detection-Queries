@@ -1,18 +1,20 @@
 # Detection Name: Obfuscated Powershell VBS execution
 
-## Description:  File Content & Process Check
-### References: Sha: "561e3780b6c1d17074806312b5f77378d8a9ac8088cc44389fb8a7f1b73850eb"
-###             Tags: "vbs, REMCOS, html, downloader, Trojan, dwnldr, obfuscated"
+### Description:  
+    File Content & Process Check
+    References: Sha: "561e3780b6c1d17074806312b5f77378d8a9ac8088cc44389fb8a7f1b73850eb"
+    Tags: "vbs, REMCOS, html, downloader, Trojan, dwnldr, obfuscated"
 
 
 **Techniques**
+```
 T1059.001 - PowerShell 
 T1059.005 - Visual Basic
 T1546.015 - Component Object Hijacking
 T1027 - Obfuscation
+```
 
-
-
+**Queries:** 
 ````KQL
 // Detect COM Object manipulation with PowerShell obfuscation patterns
 let ComObjectPatterns = dynamic(["adodb.stream", "msxml2.domdocument"]);
@@ -42,9 +44,10 @@ union DeviceProcessEvents, DeviceFileEvents, DeviceScriptEvents
 | project TimeGenerated, DeviceName, FileName, ProcessCommandLine, InitiatingProcessFileName, AccountName
 ````
 
-### Network IOC Detection
+## Network IOC Detection
 
 ### Detect connections to known malicious IP
+
 
 ```
 DeviceNetworkEvents
@@ -53,5 +56,5 @@ DeviceNetworkEvents
     or RemoteUrl contains "107.173.47.137"
     or RemoteUrl contains "wellthingsformebest.js"
 | project TimeGenerated, DeviceName, RemoteIP, RemoteUrl, RemotePort, InitiatingProcessFileName
-
+```
 
