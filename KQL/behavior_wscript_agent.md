@@ -1,10 +1,8 @@
-## Detection name: behavior based wscript powershell execution
+#detection name: behavior based wscript powershell execution
 
-Description: detects wscript powershell execution
+##description: detects wscript powershell execution
 
-Mitre-techinques: T1059.005, T1059.001
-
----
+**techinque:** T1059.005, T1059.001
 
 ```kql
 DeviceProcessEvents
