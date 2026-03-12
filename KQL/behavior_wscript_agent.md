@@ -1,8 +1,10 @@
 #detection name: behavior based wscript powershell execution
-##description: detects wscript powershell execution
-//techinque: T1059.005, T1059.001 
 
-'''
+##description: detects wscript powershell execution
+
+**techinque:** T1059.005, T1059.001
+
+```kql
 DeviceProcessEvents
 | where InitiatingProcessFileName =~ "wscript.exe"
 | where FileName =~ "powershell.exe"
@@ -20,4 +22,4 @@ DeviceProcessEvents
     ProcessCommandLine,
     SHA256
 | order by Timestamp desc
-'''
+```
